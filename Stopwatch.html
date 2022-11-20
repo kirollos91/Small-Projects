@@ -1,0 +1,103 @@
+<html lang="en">
+    <head>
+        <title>Stopwatch</title>
+        <style>
+            #main{
+                width:500px;
+                margin:100px auto;
+                padding: 60px 50px 100px;
+                text-align:center;
+                font-size:40px;
+                border-radius:40px;
+                border:3px solid #eee;
+            }
+            #main div{
+                display:inline-block;
+                width:50px;
+                margin:3px;
+                padding:10px;
+                font-weight:bold;
+
+            }
+            #controls{
+                text-align:center;
+            }
+
+            #controls button{
+                border:none;
+                cursor:pointer;
+                font-size:20px;
+                width:120px;
+                height:50px;
+                color:#fff;
+                background-color:red;
+                border-radius:30px;
+
+            }
+            #controls button:nth-of-type(1){
+                background-color:#4caf50;
+            }
+            #controls button:nth-of-type(2){
+                background-color:#f44336
+            }
+            #controls button:nth-of-type(3){
+                background-color:#2196f3;
+            }
+            #controls button:hover{
+                background-color:#333;
+                color:#e0e0e0;
+                border-radius:40px;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div id="main">
+            <div id="main_min">00</div>
+            <div id="main_second">00</div>
+            <div id="milli_seconds">00</div>
+        </div>    
+
+        <div id="controls">
+            <button onclick="start()">Start</button>
+            <button onclick="stop()">Stop</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        
+        
+        <script>
+
+            let timer = 0;
+            let timerInterval;
+            let ms = document.getElementById("milli_seconds");
+            let second = document.getElementById("main_second");
+            let minute = document.getElementById("main_min");
+
+            function start(){
+                timerInterval = setInterval(function(){
+                    timer +=1 / 60;
+                    let msVal = Math.floor((timer - Math.floor(timer)) * 100) ;
+                    let secondVal = Math.floor(timer) - Math.floor(timer / 60) * 60;
+                    let minuteVal = Math.floor(timer / 60);
+
+                    ms.textContent      = msVal < 10 ? "0" + msVal.toString() : msVal;
+                    second.textContent  = secondVal < 10 ? "0" + secondVal.toString() : secondVal;
+                    minute.textContent  = minuteVal < 10 ? "0" + minuteVal.toString() : minuteVal;
+                }, 1000/60);
+            }
+
+            function stop(){
+                clearInterval(timerInterval);
+            }
+            function reset(){
+                stop();
+                timer = 0;
+                ms.textContent = "00";
+                second.textContent = "00";
+                minute.textContent = "00";
+            }
+
+        </script>
+    </body>
+</html>
