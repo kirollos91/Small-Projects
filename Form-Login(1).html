@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                background-image: url("https://images.unsplash.com/photo-1573676660518-81f5ad8ccc07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aWNlJTIwbGFrZXxlbnwwfHwwfHw%3D&w=1000&q=80");
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                
+            }
+            .box{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 400px;
+                padding: 40px;
+                background: rgba(0,0,0,0.8);
+                box-sizing: border-box;
+                box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+                border-radius: 10px;
+            }
+            .box h2{
+                margin: 0 0 30px;
+                padding: 0;
+                color: #fff;
+                text-align: center;
+            }
+            .box .inputBox{
+                position: relative;
+            }
+            .box .inputBox input{
+                width: 100%;
+                padding: 10px 0;
+                font-size: 16px;
+                color: #fff;
+                letter-spacing: 1px;
+                margin-bottom: 30px;
+                border:none;
+                border-bottom: 1px solid #fff;
+                outline: none;
+                background-color: transparent;
+            }
+            .box .inputBox label{
+                position: absolute;
+                top: 0;
+                left: 0;
+                letter-spacing: 1px;
+                padding: 10px 0;
+                font-size: 16px;
+                color: #fff;
+                pointer-events: none;
+                transition: 0.5s;
+            }
+            .box .inputBox input:focus ~ label,
+            .box .inputBox input:valid ~ label{
+                top: -18px;
+                left: 0;
+                color: #03a9f4;
+                font-size: 12px;
+            }
+            .box input[type="submit"]{
+                background-color: #03a9f4;
+                border: none;
+                outline: none;
+                color: #fff;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <form action="" class="form">
+                <h2>Login</h2>
+                <div class="inputBox">
+                    <input type="text" name="email" id="email" required>
+                    <label for="email">Email Address</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="Password" id="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <input type="submit" value="Login" class="submit-btn" onclick="auth()">
+            </form>
+        </div>
+
+        <script>
+            function auth(){
+                let email = document.querySelector("#email").value;
+                let password = document.querySelector("#password").value;
+
+                if(email === "admin@gmail.com" && password === "admin123"){
+
+                    window.location.assign("form_login.html");
+                    alert("Login Successfully ");
+
+                } else {
+                    alert("Involid Information ");
+                    return;
+                }
+            }
+        </script>
+    </body>
+</html>
