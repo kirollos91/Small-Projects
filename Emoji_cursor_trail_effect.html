@@ -46,6 +46,12 @@
                 opacity: 0;
             }
         }
+        @media (max-width: 800px){
+            body{
+                width: 250px;
+                height: 350px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -76,6 +82,30 @@
             setTimeout(function(){
                 emoji.remove();
             },1000);
+        });
+        document.addEventListener("touchmove" , function(e){
+
+        var body    = document.body;
+        var emoji   = document.createElement("span");
+        var x       = e.touches[0].clientX;
+        var y       = e.touches[0].clientY;
+
+        emoji.style.left = x + "px";
+        emoji.style.top  = y + "px";
+            
+        emoji.innerText = image[Math.floor(Math.random() * image.length)];
+
+        emoji.style.fontSize = 5 + Math.random() * 50 + "px";
+
+        emoji.style.transform = 'translateX(' + Math.floor((Math.random() * ((1 - 200)) + 200)) + 'px)' ;
+
+        body.appendChild(emoji);
+
+
+
+        setTimeout(function(){
+            emoji.remove();
+        },1000);
         });
     </script>
 </body>
