@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Cursor Trail</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            -o-box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            background-color: #111;
+            overflow: hidden;
+        }
+        span{
+            position: absolute;
+            pointer-events: none;
+
+            animation: animate 1s linear infinite;
+        }
+        @keyframes animate{
+            0%{
+                translate: 0 0;
+                opacity: 0;
+            }
+            10%{
+                opacity: 1;
+            }
+            30%{
+                translate: 0 100px;
+                opacity: 1;
+            }
+            90%{
+                opacity: 1;
+            }
+            100%{
+                translate: 0 80px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        var image = ['😀' , '😃' , '😄' , '😇' , '😍' , '😰' , '🌜' , '👍' , '🌧' , '🌊' , '🤍' , '❤️' , '🍉' , '❄️' , '💂‍♂️' , '😡' , '🎃' , '👽' , '👾' , '👻' , '💩' , '💀' , '😈' , '☢️']
+
+        document.addEventListener("mousemove" , function(e){
+
+            var body    = document.body;
+            var emoji   = document.createElement("span");
+            var x       = e.offsetX;
+            var y       = e.offsetY;
+
+            emoji.style.left = x + "px";
+            emoji.style.top  = y + "px";
+
+            emoji.innerText = image[Math.floor(Math.random() * image.length)];
+
+            emoji.style.fontSize = 5 + Math.random() * 50 + "px";
+
+            emoji.style.transform = 'translateX(' + Math.floor((Math.random() * ((1 - 200)) + 200)) + 'px)' ;
+
+            body.appendChild(emoji);
+
+            
+
+            setTimeout(function(){
+                emoji.remove();
+            },1000);
+        });
+    </script>
+</body>
+</html>
