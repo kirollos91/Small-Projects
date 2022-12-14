@@ -46,12 +46,7 @@
                 opacity: 0;
             }
         }
-        @media (max-width: 800px){
-            body{
-                width: 250px;
-                height: 350px;
-            }
-        }
+
     </style>
 </head>
 <body>
@@ -95,9 +90,9 @@
             
         emoji.innerText = image[Math.floor(Math.random() * image.length)];
 
-        emoji.style.fontSize = 5 + Math.random() * 50 + "px";
+        emoji.style.fontSize = 5 + Math.random() * 20 + "px";
 
-        emoji.style.transform = 'translateX(' + Math.floor((Math.random() * ((1 - 200)) + 200)) + 'px)' ;
+        emoji.style.transform = 'translateX(' + Math.floor((Math.random() * ((1 - 50)) + 50)) + 'px)' ;
 
         body.appendChild(emoji);
 
