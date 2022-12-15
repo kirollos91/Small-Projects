@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-eqiv="X-UA-Compatible" content="IE-edage">
+	<meta name="viewport" content="width-device-width, initail-scale=1.0">
+	<title>Form</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+		
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Roboto', sans-serif; 
+		}
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			background-image: linear-gradient(to right , #a6aacb , #12d8fa , #1fa2ff);					  	
+		}
+		.container{
+			flex: 100%;
+			max-width: 400px;
+			background-color: #fff;
+			padding: 40px 20px;
+			border-radius: 10px;
+			z-index: 1;
+		}
+		.container h1{
+			font-size: 35px;
+			font-weight: 800;
+			margin-bottom: 40px;
+			text-align: center;
+			background-image: linear-gradient(#12d8fa , #1fa2ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		.container form .input-field{
+			position: relative;
+			margin-bottom: 35px;
+		}
+		.container form input{
+			width: 100%;
+			padding: 8px 10px;
+			font-size: 16px;
+			color: #000;
+			font-weight: 500;
+			border: none;
+			outline: none;
+			background-color: transparent;
+		}
+		.container form .input-field span{
+			position: absolute;
+			left: 0;
+			padding: 10px 0;
+			font-size: 16px;
+			color: #000;
+			font-width: 400;
+			transition: 0.5s;
+			pointer-events: none;
+		}
+		.container form .input-field input:valid ~ span,
+		.container form .input-field input:focus ~ span{
+			font-size: 12px;
+			transform :translateY(-30px);
+		}
+		.container form .input-field i{
+			position: absolute;
+			width: 100%;
+			height: 3px;
+			bottom: 0;
+			left: 0;
+			background-image: linear-gradient(to right, #a6ffcb , #12d8fa , #1fa2ff);
+			border-radius: 4px;
+			transition: 0.5s;
+			z-index: -1;
+			pointer-events: none;
+		}
+		.container form .input-field input:valid ~ i,
+		.container form .input-field input:focus ~ i{
+			height: 100%;
+			box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+		}
+		.container form button{
+			padding: 10px 26px;
+			font-size: 18px;
+			font-weight: 800;
+			line-height: 1;
+			text-transform: uppercase;
+			background-image: linear-gradient(to left , #a6ffcb , #12d8fa , #1fa2ff);
+			border: none;
+			outline: none;
+			border-radius: 4px;
+			transition: 0.5s;
+			margin-inline: auto;
+			display: block;
+		}
+		.container form button:hover{
+			filter: hue-rotate(340deg);
+		}
+		.container .login-form h5{
+			font-size: 16px;
+			font-weight: 400;
+			text-align: center;
+			margin-top: 30px;
+		}
+		.container .login-form h5 > a{
+			text-decoration: 16px;
+			text-transform: uppercase;
+			padding-bottom: 3px;
+			color: #000;
+			font-weight: 800;
+			transition: 0.5s;
+			border-bottom: 2px solid transparent;	
+		}
+		.container .login-form h5 >a:hover{
+			border-bottom: 2px solid #1fa2ff;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Sign Up</h1>
+		<div class="login-form">
+			<form action="">
+				<div class="input-field">
+					<input type="text" required>
+					<span>Name</span>
+					<i></i>
+				</div>
+				<div class="input-field">
+					<input type="text" required>
+					<span>Email</span>
+					<i></i>
+				</div>
+				<div class="input-field">
+					<input type="text" required>
+					<span>Password</span>
+					<i></i>
+				</div>
+				<button type="submit">Sign Up</button>
+			</form>
+			<h5>Already have an account <a href="#">Log In</a></h5>
+		</div>
+	</div>
+</body>
+</html>
