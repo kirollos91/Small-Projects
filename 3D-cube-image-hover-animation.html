@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>3D cube image hover animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            background-color: #00112c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            margin: 20px;
+        }
+
+        .single-box {
+            width: 300px;
+            height: 300px;
+            perspective: 1200px;
+        }
+
+        .box-content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: translateZ(-150px);
+            transition: all 1s;
+        }
+
+        .sides {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+
+        .side-1 {
+            transform: rotate(0deg) translateZ(150px);
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .side-2 {
+            color: #fff;
+            background-color: #00bfff;
+            transform: rotateY(90deg) translateZ(150px);
+        }
+
+        .box:hover .box-content {
+            transform: translateZ(-150px) rotateY(-90deg);
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .content h2 {
+            font-family:'Times New Roman', Times, serif;
+            font-size: 25px;
+        }
+
+        .content P {
+            font-size: 15px;
+            line-height: 25px;
+            font-family: monospace;
+        }
+
+        .socials {
+            margin-top: 30px;
+        }
+
+        .socials i {
+            margin: 0 15px;
+        }
+
+        @media (max-width: 991px) {
+            .wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <a href="#" class="box">
+            <div class="single-box">
+                <div class="box-content">
+                    <div class="sides side-1" style="background-image: url('https://images.bisnis.com/posts/2022/12/09/1607058/kamil8.jpg');"></div>
+                    <div class="sides side-2">
+                        <div class="content">
+                            <h2>Kirollos Samir</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, 
+                                adipisicing elit. Optio impedit omnis earum neque debitis numquam iusto? Sed molestiae
+                            </p>
+                            <p class="socials">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-youtube"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+<!-- =========================================================================================================================== -->
+
+        <a href="#" class="box">
+            <div class="single-box">
+                <div class="box-content">
+                    <div class="sides side-1" style="background-image: url('https://www.showmetech.com.br/wp-content/uploads//2022/11/316822485_1221006761963200_985605489395170284_n-1-1024x1024.jpg');"></div>
+                    <div class="sides side-2">
+                        <div class="content">
+                            <h2>Bola Samir</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, 
+                                adipisicing elit. Optio impedit omnis earum neque debitis numquam iusto? Sed molestiae
+                            </p>
+                            <p class="socials">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-youtube"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+<!-- =========================================================================================================================== -->
+
+        <a href="#" class="box">
+            <div class="single-box">
+                <div class="box-content">
+                    <div class="sides side-1" style="background-image: url('https://images.indianexpress.com/2022/12/Lensa_AI_NEW_3.jpg');"></div>
+                    <div class="sides side-2">
+                        <div class="content">
+                            <h2>Someone Famed</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, 
+                                adipisicing elit. Optio impedit omnis earum neque debitis numquam iusto? Sed molestiae
+                            </p>
+                            <p class="socials">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-youtube"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/b66d89c947.js" crossorigin="anonymous"></script>
+</body>
+</html>

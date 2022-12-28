@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Rain</title>
+    <style>
+        body {
+            position: relative;
+            overflow: hidden;
+            background-color: rgb(245,245,245);
+            min-height: 100vh;
+        }
+
+        .title {
+            color: #212121;
+            font-size: 52px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+        }
+
+        .ball {
+            width: 35px;
+            height: 35px;
+            background-color: #ccc;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 8px;
+            left: calc( 50% - 20px );
+            box-shadow: 2px 2px 2px  #000;
+        }
+
+        .drop {
+            opacity: 1;
+            animation: drop 2s cubic-bezier(0,0,0.35,1) forwards;
+        }
+
+        .fade-out {
+            animation: fade-out 2.5s ease-out forwards;
+        }
+        /*
+            Animation
+        */
+        @keyframes drop {
+            0% {
+                bottom: var(--pos-y);
+                animation-timing-function: ease-in;
+            }
+
+            45% {
+                bottom: calc(var(--pos-y) / 3);
+                animation-timing-function: ease-in;
+            }
+
+            80% {
+                bottom: calc(var(--pos-y) / 10);
+                animation-timing-function: ease-in;
+            }
+
+            30% , 60% , 95% , 100% {
+                bottom: 0%;
+                animation-timing-function: ease-out;
+            }
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 class="title">Move Mouse</h2>
+
+    <script>
+
+        let mousePos = {
+                x : 0 ,
+                y : 0        
+            };
+        
+        const isFar = (x , y) => {
+            return Math.hypot( x - mousePos.x , y - mousePos.y) > 80;
+        }
+
+        function createBall (x , y) {
+
+            var ball = document.createElement("div");
+
+            ball.classList.add("ball");
+
+            ball.style = 
+            `
+                left: ${x}px;
+                --pos-y: ${window.innerHeight - y}px;
+            `;
+            return ball;
+        }
+
+        window.onmousemove = (e) => {
+            
+            if ( isFar(e.clientX , e.clientY)) {
+
+                mousePos.x = e.clientX;
+                mousePos.y = e.clientY;
+
+                var ball1 = createBall(e.clientX, e.clientY);
+                
+                document.body.appendChild(ball1);
+
+                ball1.classList.add("drop");
+
+                ball1.onanimationend = () => {
+                    
+                    ball1.classList.add("fade-out");
+
+                    ball1.onanimationend = () => {
+                        ball1.remove();
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
